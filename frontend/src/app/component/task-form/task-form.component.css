@@ -1,0 +1,57 @@
+
+
+  .required-marker {
+    color: red;
+    margin-left: 5px;
+  }
+
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    width: 100%;
+    margin-bottom: 1.3rem;
+  }
+
+  .inner-container {
+    flex: 1 1 calc(50% - 3%);
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .mat-dialog-title-center {
+    text-align: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: end;
+    gap: 1%;
+  }
+
+  @media (max-width: 768px) {
+    .inner-container {
+      flex: 1 1 100%;
+    }
+  }
+ 
+  ::ng-deep .custom-container .mat-mdc-text-field-wrapper {
+    height: 100% ;
+  }
+  
+  ::ng-deep .custom-container{
+    height: 2.5em ;
+  }
+  ::ng-deep  .custom-container .mdc-text-field--outlined .mat-mdc-form-field-infix, .mdc-text-field--no-label .mat-mdc-form-field-infix {
+    padding: 2%;
+    height: 100%;
+  }
+
+  ::ng-deep  .custom-container .mat-mdc-icon-button.mat-mdc-button-base {
+    padding: 0%;
+    margin-bottom: 1em;
+  }

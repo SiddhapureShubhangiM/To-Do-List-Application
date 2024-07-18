@@ -1,0 +1,91 @@
+<div class="task-list-container mat-elevation-z8">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <mat-icon class="custom-icon">assignment</mat-icon>
+            <span class="text-color">Tasks<br>
+              <span style="font-size:small">All Tasks</span></span>
+            <span class="example-spacer"></span>
+            <button mat-stroked-button (click)="openTaskForm()" class="custom-button">New Task</button>
+            <button mat-stroked-button (click)="getTasks()" class="custom-button">Refresh</button>
+          </mat-toolbar-row>
+        <mat-toolbar-row>
+            <span style="font-size:small" class="text-color">{{ totalLength }} records</span>
+          <div class="search-container">
+            <mat-form-field class="search-field" appearance="outline">
+              <mat-label>Search</mat-label>
+              <input matInput (keyup)="applyFilter($event.key)">
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"></mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"></mat-checkbox>
+            </td>
+          </ng-container>
+          
+          <!-- Other columns -->
+          <ng-container matColumnDef="assignedTo">
+            <th mat-header-cell *matHeaderCellDef> Assigned To </th>
+            <td mat-cell *matCellDef="let task"> {{task.assignedTo}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let task"> {{task.status}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let task"> {{task.dueDate | date}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="priority">
+            <th mat-header-cell *matHeaderCellDef> Priority </th>
+            <td mat-cell *matCellDef="let task"> {{task.priority}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="comments">
+            <th mat-header-cell *matHeaderCellDef> Comments </th>
+            <td mat-cell *matCellDef="let task"> {{task.description}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let task" >
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon class="bordered-button">keyboard_arrow_down</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" >
+                <button mat-menu-item  class="custom-button" (click)="editTask(task)">Edit</button>
+                <button mat-menu-item  class="custom-button" (click)="deleteTask(task)">Delete</button>
+              </mat-menu>
+            </td>
+          </ng-container>
+      
+          <!-- Table rows -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mat-header-row"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      
+      <!-- Paginator -->
+      <mat-paginator [length]="totalLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
+      </mat-paginator>
+      
+    
+  </div>
+  

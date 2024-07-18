@@ -1,0 +1,90 @@
+.task-list-container {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.table-container {
+  max-height: 350px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+}
+
+
+
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-toolbar-row {
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+mat-paginator {
+  margin-top: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+ ::ng-deep .search-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin: 10px 0;
+}
+
+
+mat-toolbar-row {
+  align-items: center;
+}
+
+
+.search-field {
+  width: 17rem;
+}
+
+
+.bordered-button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 1em;
+  height: 1em;
+}
+
+
+
+.custom-icon {
+  color: #c33065;
+  font-size: 2em;
+  width: 1em;
+  height: 1em;
+}
+
+
+.mat-header-row {
+  position: sticky;
+  top: 0;
+  /* Stick the header to the top */
+  z-index: 1;
+  /* Ensure header is above content */
+  background-color: white;
+  /* Optional: Background color for the sticky header */
+}

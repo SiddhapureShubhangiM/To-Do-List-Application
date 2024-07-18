@@ -1,0 +1,16 @@
+
+.custom-button {
+  width: 10%;
+  background-color: #ffe7a7 !important; 
+  color: #bbb797 !important;
+}
+.custom-button:hover {
+  background-color: #949d8e !important;
+  color:#e3d4a1 !important;
+}
+
+.text-color{
+  color: #777d83 !important;
+
+}
+
